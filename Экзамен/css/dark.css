@@ -1,0 +1,43 @@
+body
+{
+    background: #111;
+    color: #f4f4f4;
+}
+
+.header
+{
+    background: #373737;
+    color: #f4f4f4;
+}
+
+.nav__item
+{
+    color: #f4f4f4;
+    background: #373737;
+}
+
+.nav__item:hover, .nav__item_active
+{
+    background: #444;
+}
+
+.theme-button
+{
+    color: #f4f4f4;
+    background: #4f7faf;
+}
+
+.theme-button:hover
+{
+    background: #6f9fcf;
+}
+.task:hover {
+    background-color: #fffffff8;
+  }
+.task__title {
+    background-color: #fffffff8;
+  }
+
+.task__desc {
+    background-color: #fffffff8;
+  }  
