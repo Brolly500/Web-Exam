@@ -53,6 +53,7 @@ var vue = new Vue({
   el: '#app',
   data: {
     string: 'asdasda',
+    openModal: false,
     new_task: {
       title: '',
       desc: ''
@@ -77,10 +78,20 @@ var vue = new Vue({
         });
         this.new_task.title='';
         this.new_task.desc='';
-      }
+        document.getElementById("pop_up").click();
+        }
+        else{
+          
+        }
+     
     },
     delete_task(id){
       this.tasks.splice(id,1);
-    }
+  },
+  clear__task(){
+    this.new_task.title='';
+    this.new_task.desc='';
+
   }
+}
 })

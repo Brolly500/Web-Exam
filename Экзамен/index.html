@@ -19,13 +19,45 @@
       <h3 class="stats__title">{{"Текущих задач: "+ tasks.length}}</h3>
     </div>
     <task @task_done="delete_task(index)" :key="index" v-for="(data,index) in tasks" :data="data" ></task>
-    <div class="add_task">
-      <div class="add_task__input ">
-          <input placeholder="Новая задача..." type="text" v-model="new_task.title">
-          <textarea placeholder="Описание" type="text" v-model="new_task.desc"></textarea>
+   
+    <div class="container">
+      <div style="text-align: center;">
+        <a href="#openModal">Открыть модальное окно</a>
       </div>
-      <button class="add_task__btn" @click="add_task">➕</button>
+      <div id="openModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Название</h3>
+              <a href="#close" title="Close" class="close" @click="clear__task" id="pop_up">×</a>
+            </div>
+            <div class="modal-body">
+              <div class="add_task">
+                <div class="add_task__input ">
+                    <input placeholder="Новая задача..." type="text" v-model="new_task.title">
+                    <textarea placeholder="Описание" type="text" v-model="new_task.desc"></textarea>
+                </div>
+                <button class="add_task__btn" @click="add_task">➕</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var scrollbar = document.body.clientWidth - window.innerWidth + 'px';
+        console.log(scrollbar);
+        document.querySelector('[href="#openModal"]').addEventListener('click', function () {
+          document.body.style.overflow = 'hidden';
+          document.querySelector('#openModal').style.marginLeft = scrollbar;
+        });
+        document.querySelector('[href="#close"]').addEventListener('click', function () {
+          document.body.style.overflow = 'visible';
+          document.querySelector('#openModal').style.marginLeft = '0px';
+        });
+      });
+    </script>
   </div>
   <footer style = "background-color: #555; height:50px; margin-top: 10px;">
     <p>Ягмуров А.Б., 191-362, 09.07.2021</p> 
